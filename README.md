@@ -1,41 +1,54 @@
 # Additive Identity
 
-The **Additive Identity** interactive helps students understand that adding zero to a number does not change its value. Through simple examples, students can see how zero acts as the additive identity.
+React + Vite single-page app demonstrating additive identity: adding zero to a quantity leaves it unchanged. UI state drives numeric examples and feedback; implementation lives in `AdditiveIdentity.jsx`.
+
+**Live site:** [https://content-interactives.github.io/additive_identity](https://content-interactives.github.io/additive_identity)
+
+Curriculum alignment and placement: [Standards.md](Standards.md).
 
 ---
 
-## 🔗 Live Interactive
+## Stack
 
-Try it out here:  
-👉 [https://content-interactives.github.io/additive_identity](https://content-interactives.github.io/additive_identity)
-
----
-
-## 🌐 Where This Interactive Is Being Used
-
-This interactive is currently featured in the following locations:
-
-- <img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/5d12571f-8e12-4441-98ab-c0bc94069a96" /> **CK-12 Intent Response**  
-  - 👉 PRODUCTION: PENDING  
-  - 👉 MASTER: PENDING  
-- 📘 **CK-12 Flexbooks**
-  - 👉 PENDING
+| Layer | Notes |
+|--------|--------|
+| Build | Vite 6, `@vitejs/plugin-react` |
+| UI | React 19 |
+| Styling | Tailwind 3 |
+| Icons | lucide-react |
+| Deploy | `gh-pages -d dist`; `predeploy` runs `vite build` |
 
 ---
 
-## 📚 Standards & Subjects
+## Layout
 
-This interactive aligns with the following topics and standards:
-
-- **📂 Subject Area**: Middle School Math (Grade 6)  
-- **🧮 Topic**: Properties of Operations (Additive Identity)  
-- **📏 Common Core**:  
-  - 6.EE.A.3 – Apply the properties of operations to generate equivalent expressions.  
-  - 6.NS.B.3 – Fluently add, subtract, multiply, and divide multi-digit decimals using the standard algorithm.
+```
+vite.config.js          # base: '/additive_identity/'
+src/
+  main.jsx → App.jsx → components/AdditiveIdentity.jsx
+  components/ui/        # shared UI (card, alert, slider, …)
+```
 
 ---
 
-## 🛠️ Developer Notes
+## `vite.config.js`
 
-- Built with: React, HTML, CSS, JavaScript  
-- Deployed via GitHub Pages
+`base: '/additive_identity/'` must match the GitHub Pages repository path.
+
+---
+
+## Scripts
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Vite dev server |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview production build |
+| `npm run lint` | ESLint |
+| `npm run deploy` | Build and push `dist/` to `gh-pages` |
+
+---
+
+## Embedding
+
+Fixed-height layout via shared `Container` / UI components; confirm dimensions in `AdditiveIdentity.jsx` if embedding in an iframe.
